@@ -1,7 +1,7 @@
 var app=angular.module("mygame",[]);
 app.controller("mycontrol",['$scope',function($scope){
 $scope.demo="This is demo Game application on angular js"
-var words=["elephant","monkey","rabbit","gorilla","peacock","butterfly","housefly","aeroplane","banana","rose","jamoon","lover","father",,"mother","pubg","cricket","ludo"];
+var words=["elephant","monkey","Bhanu Prakash","rabbit","gorilla","peacock","butterfly","housefly","aeroplane","banana","rose","jamoon","lover","father",,"mother","pubg","cricket","ludo"];
 $scope.incorrectletterschoosen=[];
 $scope.correctletterschoosen=[];
 $scope.gusses=6;
@@ -81,6 +81,10 @@ $scope.letterchoosen=function(){
         if($scope.index1<=3)
 {
     $scope.hintname= "Animal name";  
+}
+if($scope.index1==3)
+{
+    $scope.hintname= "esds employee";  
 }
 else if($scope.index1==4)
 {

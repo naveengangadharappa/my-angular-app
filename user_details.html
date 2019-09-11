@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> User Details storage</title>
+    <link href="style.css" rel="stylesheet" type="text/css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js">
+    </script>
+    <script src="dbstore.js"></script>
+</head>
+<body ng-app="signup" ng-controller="mycontrol">
+<center><div><h1>{{demo}}</h1><hr></hr></div><br><br>
+<div class="maindiv">
+    Name:<input type="text" ng-model="user.name" placeholder="Name" required/><br><br>
+    Email:<input type="email" name="email" ng-model="user.email" placeholder="Email" required/><br><br>
+    select gender:
+    <select id="gender" name="gender"ng-model="user.gender">
+        <option name="male" value="male">male</option>
+        <option name="femle" value="female">female</option>
+    </select><br><br>
+    Select Nationality:<input type="radio" value="indian" ng-model="user.Indian">Indian<input type="radio" value="nonindian" ng-model="user.nonindian">Non Indian<br><br>
+    Address:<textarea name="address" ng-model="user.address"></textarea><br><br>
+    <button ng-click="submitvalues()">Submit</button>
+</div>
+{{disp}}
+</center>
+</body>
+</html>

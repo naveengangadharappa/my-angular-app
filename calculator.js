@@ -2,41 +2,17 @@ var calculator=angular.module("mycalculator",[]);
 calculator.controller("mycalccontrol",['$scope',function($scope){
 $scope.demo="This is a simple calculator";
 $scope.result='';
-$scope.input={
-    letter:''
-}
-
+$scope.input='';
 $scope.res=function()
-{
-    console.log("entered function res1");
-    console.log($scope.input.letter);
-    var temp=$scope.input.letter;
-    var operator='';
-    var op1='';
-    var op2='';
-    for(var i=0;i<temp.length;i++)
+{ 
+    var temp=$scope.input;
+    if(temp.includes('@')||temp.includes('#')||temp.includes('!')||temp.includes('$')||temp.includes('&')||temp.includes('_')||temp.includes('~')||temp.includes(';')||temp.includes(':')||temp.includes('>')||temp.includes('<'))
     {
-        if(temp[i]=='+'||temp[i]=='-'||temp[i]=='*'||temp[i]=='/'||temp[i]=='%')
-        {
-            operator=temp[i];
-            op1=temp.substr(0,i);
-            op2=temp.substr(i+1,temp.length);
-        }
+        $scope.result="This Expression cannot be evaluated";   
     }
-    console.log(op1+op2+operator);
-switch(operator)
-{
-    case '+':$scope.result=parseInt(op1)+parseInt(op2);
-        break;
-    case '-':$scope.result=parseInt(op1)-parseInt(op2);
-        break;
-    case '*':$scope.result=parseInt(op1)*parseInt(op2);
-        break;
-    case '/':$scope.result=parseInt(op1)/parseInt(op2);
-        break;
-    case '%':$scope.result=parseInt(op1)%parseInt(op2);
-        break;
+    else
+    {
+        $scope.result=eval($scope.input); 
+    }  
 }
-}
-
 }])
